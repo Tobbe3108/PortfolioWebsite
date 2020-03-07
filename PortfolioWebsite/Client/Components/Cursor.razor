@@ -1,0 +1,35 @@
+﻿<span class="@(running ? "blinking" : "") @(Hidden ? "hidden" : "")">@charType</span>
+
+<style>
+    .blinking {
+        animation: blinkingText 1s infinite;
+    }
+
+    @@keyframes blinkingText {
+        0% {
+            color: #edf2f7;
+        }
+
+        49% {
+            color: #edf2f7;
+        }
+
+        50% {
+            color: transparent;
+        }
+
+        99% {
+            color: transparent;
+        }
+
+        100% {
+            color: #edf2f7;
+        }
+    }
+</style>
+
+@code {
+    [Parameter] public char charType { get; set; }
+    [Parameter] public bool running { get; set; }
+    [Parameter] public bool Hidden { get; set; }
+}
