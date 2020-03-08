@@ -1,7 +1,12 @@
-﻿@inject NavigationManager NavigationManager
+﻿@page "/Terminal"
+@inject NavigationManager NavigationManager
+@implements IDisposable
+@using Toolbelt.Blazor.HotKeys
+@inject HotKeys HotKeys
+@using PortfolioWebsite.Client.Components
 
 <div style="background: #edf2f7;">
-    <div class="h-screen overflow-hidden flex items-center justify-center @(Animate ? "scale-down-bl" : "")">
+    <div class="h-screen overflow-hidden flex items-center justify-center @(Animate ? " scale-down-bl" : "" )">
         <div style="font-family: Segoe UI; height: 50%;" class="w-2/3 mx-auto">
             <div class="w-full subpixel-antialiased bg-black border-black mx-auto h-full">
                 <div class="flex justify-between bg-white border-b border-gray-500">
@@ -40,6 +45,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="absolute bottom-0" style="left: 50%; transform: translate(-50%, 0);">
+        <p class="text-gray-500">Press Enter to skip intro</p>
     </div>
 </div>
 
@@ -99,6 +107,7 @@
 </style>
 
 @code{
+    #region Vars
     public string Username { get; set; }
     public string Password { get; set; }
     public string Download { get; set; } = "▱▱▱▱▱▱▱▱▱▱";
@@ -113,6 +122,22 @@
     public bool Running { get; set; }
     public char cursor = '_';
     public bool Animate { get; set; } = false;
+    #endregion
+
+    HotKeysContext HotKeysContext;
+    protected override void OnInitialized()
+    {
+        this.HotKeysContext = this.HotKeys.CreateContext()
+          .Add(ModKeys.None, Keys.Enter, Skip, "To skip intro");
+    }
+    void Skip()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+    public void Dispose()
+    {
+        this.HotKeysContext.Dispose();
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -152,7 +177,7 @@
         Animate = true;
         StateHasChanged();
         await Wait(100);
-        NavigationManager.NavigateTo("/Test");
+        NavigationManager.NavigateTo("/");
     }
 
     private async Task Wait(int milliseconds)

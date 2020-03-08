@@ -1,4 +1,15 @@
 ﻿@page "/"
-@using PortfolioWebsite.Client.Components
+@inject NavigationManager NavigationManager
 
-<Terminal />
+@if (FirstLoad)
+{
+    NavigationManager.NavigateTo("/Terminal");
+}
+else
+{
+    <p>Not any more</p>
+}
+
+@code {
+    public bool FirstLoad { get; set; } = true;
+}
