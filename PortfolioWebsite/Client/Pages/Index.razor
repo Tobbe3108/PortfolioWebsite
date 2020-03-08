@@ -1,15 +1,26 @@
 ﻿@page "/"
 @inject NavigationManager NavigationManager
+@using PortfolioWebsite.Shared
+@using PortfolioWebsite.Client.Components
 
-@if (FirstLoad)
-{
-    NavigationManager.NavigateTo("/Terminal");
-}
-else
-{
-    <p>Not any more</p>
-}
+<CascadingValue Value="stateManager">
+    @if (state.FirstLoad)
+    {
+        <Terminal />
+    }
+    else
+    {
+        <Card />
+    }
+</CascadingValue>
 
-@code {
-    public bool FirstLoad { get; set; } = true;
+@code{
+    private PageState state;
+    private PageState.Manager stateManager;
+    protected override void OnInitialized()
+    {
+        state = new PageState();
+        stateManager = new PageState.Manager(state);
+        stateManager.OnStateChanged += StateHasChanged;
+    }
 }

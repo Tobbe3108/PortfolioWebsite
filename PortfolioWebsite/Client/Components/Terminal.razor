@@ -1,9 +1,8 @@
-﻿@page "/Terminal"
-@inject NavigationManager NavigationManager
+﻿@inject NavigationManager NavigationManager
 @implements IDisposable
 @using Toolbelt.Blazor.HotKeys
 @inject HotKeys HotKeys
-@using PortfolioWebsite.Client.Components
+@using PortfolioWebsite.Shared
 
 <div style="background: #edf2f7;">
     <div class="h-screen overflow-hidden flex items-center justify-center @(Animate ? " scale-down-bl" : "" )">
@@ -108,6 +107,7 @@
 
 @code{
     #region Vars
+    [CascadingParameter] protected PageState.Manager StateManager { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
     public string Download { get; set; } = "▱▱▱▱▱▱▱▱▱▱";
@@ -132,6 +132,7 @@
     }
     void Skip()
     {
+        StateManager.SetFirstLoad(false);
         NavigationManager.NavigateTo("/");
     }
     public void Dispose()
@@ -177,7 +178,7 @@
         Animate = true;
         StateHasChanged();
         await Wait(100);
-        NavigationManager.NavigateTo("/");
+        Skip();
     }
 
     private async Task Wait(int milliseconds)
