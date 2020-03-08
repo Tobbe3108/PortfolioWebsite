@@ -1,53 +1,107 @@
-﻿<div class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-    <style>
-        .invert:hover > img {
-            filter: invert(100%);
-        }
-    </style>
-    <div style="font-family: Segoe UI; height: 50%;" class="w-2/3 mx-auto">
-        <div class="w-full subpixel-antialiased bg-black border-black mx-auto h-full">
-            <div class="flex justify-between bg-white border-b border-gray-500">
-                <div class="flex">
-                    <span style="padding: 7px"><img height="13px" width="16px" src="img/icon.png"></span>
-                    <p class="text-xs" style="padding-top: 4px;">Command Prompt</p>
-                </div>
-                <div class="flex">
-                    <span class="p-2 px-3 hover:bg-gray-300"><img height="10px" width="10px" src="img/min.png"></span>
-                    <span class="p-2 px-3 hover:bg-gray-300"><img height="10px" width="10px" src="img/max.png"></span>
-                    <span class="p-2 px-3 hover:bg-red-500 invert"><img height="10px" width="10px" src="img/close.png"></span>
-                </div>
-            </div>
-            <div class="pl-1 pt-1 h-auto text-white font-mono text-xs bg-black">
-                <p class="pb-1">Microsoft Windows [Version 10.0.19041.113]</p>
-                <p class="pb-1">(c) 2020 Microsoft Corporation. All rights reserved.</p>
-                <p class="pb-1">&nbsp;</p>
-                <p class="pb-1">C:\Users\User1>Login as: @Username<Cursor charType="cursor" running="Running" Hidden="UserCursorHidden" /></p>
-                @if (!pwsHidden)
-                {
-                    <p class="pb-1">C:\Users\User1>Password: @Password<Cursor charType="cursor" running="Running" Hidden="PwsCursorHidden" /></p>
-                }
-                @if (!downloadHidden)
-                {
-                    <p class="pb-1">C:\Users\User1>@Download</p>
+﻿@inject NavigationManager NavigationManager
 
-                    if (!downloadText1Hidden)
+<div style="background: #edf2f7;">
+    <div class="h-screen overflow-hidden flex items-center justify-center @(Animate ? "scale-down-bl" : "")">
+        <div style="font-family: Segoe UI; height: 50%;" class="w-2/3 mx-auto">
+            <div class="w-full subpixel-antialiased bg-black border-black mx-auto h-full">
+                <div class="flex justify-between bg-white border-b border-gray-500">
+                    <div class="flex">
+                        <span style="padding: 7px"><img height="13px" width="16px" src="img/icon.png"></span>
+                        <p class="text-xs" style="padding-top: 4px;">Command Prompt</p>
+                    </div>
+                    <div class="flex">
+                        <span class="p-2 px-3 hover:bg-gray-300"><img height="10px" width="10px" src="img/min.png"></span>
+                        <span class="p-2 px-3 hover:bg-gray-300"><img height="10px" width="10px" src="img/max.png"></span>
+                        <span class="p-2 px-3 hover:bg-red-500 invert"><img height="10px" width="10px" src="img/close.png"></span>
+                    </div>
+                </div>
+                <div class="pl-1 pt-1 h-auto text-white font-mono text-xs bg-black">
+                    <p class="pb-1">Microsoft Windows [Version 10.0.19041.113]</p>
+                    <p class="pb-1">(c) 2020 Microsoft Corporation. All rights reserved.</p>
+                    <p class="pb-1">&nbsp;</p>
+                    <p class="pb-1">C:\Users\User1>Login as: @Username<Cursor charType="cursor" running="Running" Hidden="UserCursorHidden" /></p>
+                    @if (!pwsHidden)
                     {
-                        <p class="pb-1">C:\Users\User1>Added 172 packages from 151 contributors and audited 419 packages in 6.614s</p>
+                        <p class="pb-1">C:\Users\User1>Password: @Password<Cursor charType="cursor" running="Running" Hidden="PwsCursorHidden" /></p>
                     }
-                    if (!downloadText2Hidden)
+                    @if (!downloadHidden)
                     {
-                        <p class="pb-1">C:\Users\User1>Found 0 vulnerabilities</p>
+                        <p class="pb-1">C:\Users\User1>@Download Downloading Website..</p>
+
+                        if (!downloadText1Hidden)
+                        {
+                            <p class="pb-1">C:\Users\User1>Added 172 packages from 151 contributors and audited 419 packages in 6.614s</p>
+                        }
+                        if (!downloadText2Hidden)
+                        {
+                            <p class="pb-1">C:\Users\User1>Found 0 vulnerabilities</p>
+                        }
                     }
-                }
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<style>
+    .invert:hover > img {
+        filter: invert(100%);
+    }
+
+    /* ----------------------------------------------
+    * Generated by Animista on 2020-3-8 16:34:43
+    * Licensed under FreeBSD License.
+    * See http://animista.net/license for more info.
+    * w: http://animista.net, t: @@cssanimista
+    * ---------------------------------------------- */
+
+    /**
+    * ----------------------------------------
+    * animation scale-down-bl
+    * ----------------------------------------
+    */
+    .scale-down-bl {
+        -webkit-animation: scale-down-bl 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-down-bl 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    @@-webkit-keyframes scale-down-bl {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+        }
+
+        100% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+        }
+    }
+
+    @@keyframes scale-down-bl {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+        }
+
+        100% {
+            -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+            -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+        }
+    }
+</style>
+
 @code{
     public string Username { get; set; }
     public string Password { get; set; }
-    public string Download { get; set; } = "▁▁▁▁▁▁▁▁▁▁";
+    public string Download { get; set; } = "▱▱▱▱▱▱▱▱▱▱";
     string username = "admin";
     string password = "*****";
     public bool UserCursorHidden;
@@ -58,55 +112,55 @@
     public bool downloadText2Hidden { get; set; } = true;
     public bool Running { get; set; }
     public char cursor = '_';
+    public bool Animate { get; set; } = false;
 
     protected override async Task OnInitializedAsync()
     {
         Running = true;
         UserCursorHidden = false;
-        if (await Wait(1000))
-        {
-            Running = false;
-            if (await TypewriteUsername())
-            {
-                Running = true;
-                StateHasChanged();
-                if (await Wait(350))
-                {
-                    UserCursorHidden = true;
-                    PwsCursorHidden = false;
-                    Running = false;
-                    pwsHidden = false;
-                    @if (await TypewritePassword())
-                    {
-                        Running = true;
-                        StateHasChanged();
-                        @if (await Wait(350))
-                        {
-                            PwsCursorHidden = true;
-                            downloadHidden = false;
-                            @if (await DownloadAnimation())
-                            {
-                                downloadText1Hidden = false;
-                                if (await Wait(100))
-                                {
-                                    downloadText2Hidden = false;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        await Wait(1000);
 
+        Running = false;
+        await TypewriteUsername();
+
+        Running = true;
+        StateHasChanged();
+        await Wait(250);
+
+        UserCursorHidden = true;
+        PwsCursorHidden = false;
+        Running = false;
+        pwsHidden = false;
+        await TypewritePassword();
+
+        Running = true;
+        StateHasChanged();
+        await Wait(250);
+
+        PwsCursorHidden = true;
+        downloadHidden = false;
+        await DownloadAnimation();
+
+        downloadText1Hidden = false;
+        StateHasChanged();
+        await Wait(250);
+
+        downloadText2Hidden = false;
+        StateHasChanged();
+        await Wait(250);
+
+        Animate = true;
+        StateHasChanged();
+        await Wait(100);
+        NavigationManager.NavigateTo("/Test");
     }
 
-    private async Task<bool> Wait(int milliseconds)
+    private async Task Wait(int milliseconds)
     {
         await Task.Delay(milliseconds);
-        return true;
     }
 
-    private async Task<bool> TypewriteUsername()
+    private async Task TypewriteUsername()
     {
         Random random = new Random();
         var array = username.ToCharArray();
@@ -114,13 +168,11 @@
         {
             Username += array[i];
             StateHasChanged();
-            await Task.Delay(random.Next(100, 500));
+            await Task.Delay(random.Next(100, 250));
         }
-
-        return true;
     }
 
-    private async Task<bool> TypewritePassword()
+    private async Task TypewritePassword()
     {
         Random random = new Random();
         var array = password.ToCharArray();
@@ -128,28 +180,22 @@
         {
             Password += array[i];
             StateHasChanged();
-            await Task.Delay(random.Next(100, 500));
+            await Task.Delay(random.Next(100, 250));
         }
-
-        return true;
     }
 
-    //Fix this method!!
-    private async Task<bool> DownloadAnimation()
+    private async Task DownloadAnimation()
     {
         Random random = new Random();
         var array = Download.ToCharArray();
         for (int i = 0; i < Download.Length; i++)
         {
-            array[i] = '█';
-            foreach (char item in array)
-            {
-                Download += item;
-            }
-            StateHasChanged();
-            await Task.Delay(random.Next(100, 500));
-        }
+            array[i] = '▰';
 
-        return true;
+            Download = new string(array);
+
+            StateHasChanged();
+            await Task.Delay(random.Next(100, 150));
+        }
     }
 }
