@@ -8,7 +8,33 @@ namespace PortfolioWebsite.Shared
 {
     public class PageState
     {
-        public bool FirstLoad { get; set; } = false;
+        public bool FirstLoad { get; private set; } = false;
+
+        public List<CardData> CardDataList { get; private set; } = new List<CardData>()
+        {
+            new CardData()
+            {
+                Title = "SignalR",
+                Body = "I did SignalR",
+                URL = "https://google.com/",
+                Tags = new string[]
+                {
+                    "SignalR",
+                    "Blazor"
+                },
+            },
+            new CardData()
+            {
+                Title = "SignalR",
+                Body = "I did SignalR",
+                URL = "https://google.com/",
+                Tags = new string[]
+                {
+                    "SignalR",
+                    "Blazor"
+                },
+            },
+        };
 
         public class Manager
         {

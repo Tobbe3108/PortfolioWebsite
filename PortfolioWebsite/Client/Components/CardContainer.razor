@@ -1,11 +1,14 @@
-﻿<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 xl:mx-64 mx-10">
-    <div class="p-2">
-        <Card />
-    </div>
-    <div class="p-2">
-        <Card />
-    </div>
-    <div class="p-2">
-        <Card />
-    </div>
+﻿@using PortfolioWebsite.Shared
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 xl:mx-64 mx-10">
+    @foreach (CardData cardData in State.CardDataList)
+    {
+        <div class="m-2">
+            <Card CardData="@cardData" />
+        </div>
+    }
 </div>
+
+@code{
+    [CascadingParameter] protected PageState State { get; set; }
+}

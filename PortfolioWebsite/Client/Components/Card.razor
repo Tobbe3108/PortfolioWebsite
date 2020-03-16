@@ -1,13 +1,36 @@
-﻿<div class="max-w-lg rounded overflow-hidden shadow-lg bg-gray-300">
-    <div class="px-6 py-4">
-        <h1 class="font-bold text-xl mb-2">The Coldest Sunset</h1>
-        <p class="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-        </p>
+﻿@using PortfolioWebsite.Shared
+@inject NavigationManager NavigationManager
+
+<div class="rounded bg-gray-300 p-4 cursor-pointer" @onclick="@(() => Navigate(URL))">
+    <div>
+        <h1 class="font-bold text-xl mb-2">@Title</h1>
+        <p class="text-gray-700 text-base">@Body</p>
     </div>
-    <div class="px-6 py-4">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+    <div class="mt-4">
+        @foreach (string tag in Tags)
+        {
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mx-1">#@tag</span>
+        }
     </div>
 </div>
+
+@code {
+    [Parameter] public CardData CardData { get; set; }
+    private string Title;
+    private string Body;
+    private string[] Tags;
+    private string URL;
+
+    protected override void OnParametersSet()
+    {
+        Title = CardData.Title;
+        Body = CardData.Body;
+        Tags = CardData.Tags;
+        URL = CardData.URL;
+    }
+
+    private void Navigate(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+}

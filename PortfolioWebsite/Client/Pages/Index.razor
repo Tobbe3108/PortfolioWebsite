@@ -3,15 +3,17 @@
 @using PortfolioWebsite.Shared
 @using PortfolioWebsite.Client.Components
 
-<CascadingValue Value="stateManager">
-    @if (state.FirstLoad)
-    {
-        <Terminal />
-    }
-    else
-    {
-        <MainPage />
-    }
+<CascadingValue Value="state">
+    <CascadingValue Value="stateManager">
+        @if (state.FirstLoad)
+        {
+            <Terminal />
+        }
+        else
+        {
+            <MainPage />
+        }
+    </CascadingValue>
 </CascadingValue>
 
 @code{
