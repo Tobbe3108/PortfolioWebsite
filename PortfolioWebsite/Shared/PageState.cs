@@ -14,24 +14,15 @@ namespace PortfolioWebsite.Shared
         {
             new CardData()
             {
-                Title = "SignalR",
-                Body = "I did SignalR",
-                URL = "https://google.com/",
+                Title = "Single-page applications",
+                Body = "Jeg har igennem en længere periode beskæftiget mig med Single-page applications via flere forskellige frameworks. Vi har i skoen haft et forløb omkring Blazor, dette forløb indeholdt basal undervisning men selvstudie fik mig dybere ned i frameworket og jeg har blandt andet lavet denne side ved hjælp af Blazor. Jeg her derudover tidligere arbejdet med Svelte, Vue og React da jeg synes det var spændende at lære lidt omkring deres ligheder og forskelligheder.",
+                URL = "https://github.com/Tobbe3108/PortfolioWebsite",
                 Tags = new string[]
                 {
-                    "SignalR",
-                    "Blazor"
-                },
-            },
-            new CardData()
-            {
-                Title = "SignalR",
-                Body = "I did SignalR",
-                URL = "https://google.com/",
-                Tags = new string[]
-                {
-                    "SignalR",
-                    "Blazor"
+                    "Blazor",
+                    "Svelte",
+                    "Vue",
+                    "React"
                 },
             },
         };
