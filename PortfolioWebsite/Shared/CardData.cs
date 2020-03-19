@@ -9,8 +9,9 @@ namespace PortfolioWebsite.Shared
     public class CardData
     {
         public string Title { get; set; }
+        public string Preview { get; set; }
         public string Body { get; set; }
         public string[] Tags { get; set; }
-        public string URL { get; set; }
+        public Dictionary<string, string> URL { get; set; }
     }
 }
