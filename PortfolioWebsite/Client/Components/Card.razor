@@ -7,27 +7,35 @@
         <div>
             <input type="checkbox" class="read-more-state" id="@CardData.Title" />
             <p class="read-more-wrap text-gray-700 text-base">
-                @CardData.Preview <span class="read-more-target text-gray-700 text-base">
+                @((MarkupString)CardData.Preview) <span class="read-more-target text-gray-700 text-base">
                     @CardData.Body
-                    @foreach (var item in CardData.URL)
+                    @if (CardData.URL != null)
                     {
-                        <a class="underline" href="@item.Value">@item.Key</a>
+                        @foreach (var item in CardData.URL)
+                        {
+                            <a class="underline font-bold" href="@item.Value">@item.Key</a>
+                        }
                     }
                 </span>
             </p>
-            <label for="@CardData.Title" class="read-more-trigger cursor-pointer text-gray-700 text-base underline"></label>
+            @if (CardData.Body != null)
+            {
+                <label for="@CardData.Title" class="read-more-trigger cursor-pointer text-gray-700 text-base underline"></label>
+            }
         </div>
     </div>
     <div class="mt-4">
-        @foreach (string tag in CardData.Tags)
+        @if (CardData.Tags != null)
         {
-            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mb-1">#@tag</span>
+            @foreach (string tag in CardData.Tags)
+            {
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mb-1">#@tag</span>
+            }
         }
     </div>
 </div>
 
 <style>
-
     .read-more-state {
         display: none;
     }

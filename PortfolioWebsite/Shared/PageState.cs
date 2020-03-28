@@ -67,6 +67,24 @@ namespace PortfolioWebsite.Shared
                     "CI-CD",
                     "MongoDB Stitch"
                 },
+            },
+            new CardData()
+            {
+                Title = "Arkitektur",
+                Preview = "Jeg har arbejdet med flere forskellige system arkitekturer blandt andet N-tier architecture og Distributed Architecture.",
+                Body = "Jeg har arbejdet med disse arkitekture igennem de større projekter jeg har udarbejdet i forbindelse med mit studie. Ud over disse er vi lige gået igang med undervisning omkring Microservices, og jeg er selv startet på et par kurser omkring emnet.",
+                URL = new Dictionary<string, string>(){ { "", "" } },
+                Tags = new string[]
+                {
+                    "Microservices",
+                    "N-tier architecture",
+                    "Distributed Architecture"
+                },
+            },
+            new CardData()
+            {
+                Title = "Uddannelse",
+                Preview = "- Folkeskole Dagnæsskolen Horsens 2003-2013<br /> - Step 10 Learnmark Horsens 2013-2014<br /> - HTX Learnmark Horsens 2014-2017<br /> - Datamatiker Ucl Vejle 2018-2020",
             }
         };
 
