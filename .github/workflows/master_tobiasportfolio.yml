@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'tobiasportfolio'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a6080ca8f0a04fa5927eff823bcc8059 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_097b3fa49afb4388b665390f914fc9be }}
         package: ${{env.DOTNET_ROOT}}/myapp 
