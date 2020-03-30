@@ -3,10 +3,10 @@
 
 <div class="rounded bg-gray-300 p-4 w-full lg:w-full">
     <div>
-        <h1 class="font-bold text-2xl lg:text-xl mb-2">@CardData.Title</h1>
+        <h1 class="font-bold text-10xl lg:text-xl mb-2">@CardData.Title</h1>
         <div>
             <input type="checkbox" class="read-more-state" id="@CardData.Title" />
-            <p class="read-more-wrap text-gray-700 lg:text-base text-lg">
+            <p class="read-more-wrap text-gray-700 lg:text-base text-6xl">
                 @((MarkupString)CardData.Preview) <span class="read-more-target text-gray-700 text-base">
                     @CardData.Body
                     @if (CardData.URL != null)
@@ -20,7 +20,7 @@
             </p>
             @if (CardData.Body != null)
             {
-                <label for="@CardData.Title" class="read-more-trigger cursor-pointer text-gray-700 lg:text-base text-lg underline"></label>
+                <label for="@CardData.Title" class="read-more-trigger cursor-pointer text-gray-700 lg:text-base text-6xl underline"></label>
             }
         </div>
     </div>
