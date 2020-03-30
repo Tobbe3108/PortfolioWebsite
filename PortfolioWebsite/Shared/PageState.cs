@@ -84,7 +84,14 @@ namespace PortfolioWebsite.Shared
             new CardData()
             {
                 Title = "Uddannelse",
-                Preview = "- Folkeskole Dagnæsskolen Horsens 2003-2013<br /> - Step 10 Learnmark Horsens 2013-2014<br /> - HTX Learnmark Horsens 2014-2017<br /> - Datamatiker Ucl Vejle 2018-2020",
+                Preview = "- Folkeskole Dagnæsskolen Horsens 2003-2013<br /> - Step 10 Learnmark Horsens 2013-2014<br /> - HTX Learnmark Horsens 2014-2017<br /> - Datamatiker Ucl Vejle 2018-I dag",
+                Tags = new string[]
+                {
+                    "Folkeskole",
+                    "10. klasse",
+                    "HTX",
+                    "Datamatiker"
+                },
             }
         };
 
