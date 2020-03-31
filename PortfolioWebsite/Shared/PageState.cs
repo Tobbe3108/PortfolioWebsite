@@ -8,8 +8,6 @@ namespace PortfolioWebsite.Shared
 {
     public class PageState
     {
-        public bool FirstLoad { get; private set; } = false;
-
         public List<CardData> CardDataList { get; private set; } = new List<CardData>()
         {
             new CardData()
@@ -102,12 +100,6 @@ namespace PortfolioWebsite.Shared
             public Manager(PageState state)
             {
                 _State = state;
-            }
-
-            public void SetFirstLoad(bool state)
-            {
-                _State.FirstLoad = state;
-                OnStateChanged?.Invoke();
             }
 
             public event Action OnStateChanged;
