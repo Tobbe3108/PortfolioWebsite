@@ -86,10 +86,10 @@ namespace PortfolioWebsite.Shared
             {
                 Title = "Arkitektur",
                 Preview =
-                    "Jeg har arbejdet med flere forskellige system arkitekturer blandt andet N-tier architecture og Distributed Architecture.",
+                    "Jeg har arbejdet med flere forskellige system arkitekturer blandt andet N-tier architecture og Microservices architecture.",
                 Body =
-                    "Jeg har arbejdet med disse arkitekture igennem de større projekter jeg har udarbejdet i forbindelse med mit studie. Ud over disse er vi lige gået igang med undervisning omkring Microservices, og jeg er selv startet på et par kurser omkring emnet.",
-                URL = new Dictionary<string, string>() {{"", ""}},
+                    "Jeg har arbejdet med N-tier arkitekture igennem de større projekter jeg har udarbejdet i forbindelse med mit studie. Derudover er vi gået igang med undervisning omkring Microservices, og jeg er selv startet på et par kurser omkring emnet.",
+                URL = new Dictionary<string, string>() {{"Microservices kode", "https://github.com/Tobbe3108/Actio"}},
                 Tags = new string[]
                 {
                     "Microservices",
