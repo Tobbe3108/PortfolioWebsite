@@ -84,17 +84,22 @@ namespace PortfolioWebsite.Shared
             },
             new CardData()
             {
-                Title = "Arkitektur",
+                Title = "Microservices Architecture",
                 Preview =
-                    "Jeg har arbejdet med flere forskellige system arkitekturer blandt andet N-tier architecture og Microservices architecture.",
+                    "Vi er her på 4. semester fået undervisning i Microservices Architecture med særligt fokus på blandt andet:",
                 Body =
-                    "Jeg har arbejdet med N-tier arkitekture igennem de større projekter jeg har udarbejdet i forbindelse med mit studie. Derudover er vi gået igang med undervisning omkring Microservices, og jeg er selv startet på et par kurser omkring emnet.",
-                URL = new Dictionary<string, string>() {{"Microservices kode", "https://github.com/Tobbe3108/Actio"}},
+                    "Command Query Responsibility Segregation, API Gateway / Backends for Frontends og Service Bus. Jeg har udover denne undervisning færdiggjort en rækker kurser omkring emnet for at komme mere i dybden med denne vigtige arkitektur end undervisningen tillod. Jeg har ud over den kode erfaring jeg fik igennem den række kurser jeg har taget, været en stor del af at få arkitekturen på benene i et fælles projekt for hele klassen.",
+                URL = new Dictionary<string, string>()
+                {
+                    {"Actio kode", "https://github.com/Tobbe3108/Actio"},
+                    {"MicroRabbit kode", "https://github.com/Tobbe3108/MicroRabbit"}
+                },
                 Tags = new string[]
                 {
                     "Microservices",
-                    "N-tier architecture",
-                    "Distributed Architecture"
+                    "BFF",
+                    "RabbitMQ",
+                    "CQRS"
                 },
             },
             new CardData()
